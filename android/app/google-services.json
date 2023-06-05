@@ -45,6 +45,13 @@
             {
               "client_id": "347209921282-ugdt5ljf1hp1v6vd1qq4tqc8mubbljod.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "347209921282-hmetn0oba8bcvf9tgduhf6mpiot55dlb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.wallpaperapp.live.wallpapers.hd"
+              }
             }
           ]
         }

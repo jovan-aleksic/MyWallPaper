@@ -17,19 +17,13 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -52,11 +46,32 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyB_ZnlTIBH7yR16D65uIG30k7mzeXFpeFE',
+    appId: '1:347209921282:web:cd0f576fa9116516a1481b',
+    messagingSenderId: '347209921282',
+    projectId: 'wallpaper-app-2efc8',
+    authDomain: 'wallpaper-app-2efc8.firebaseapp.com',
+    storageBucket: 'wallpaper-app-2efc8.appspot.com',
+    measurementId: 'G-3P3VYTKRGE',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAHxumU2mpcxPZbjnN_yctkM8wcUp_FafI',
     appId: '1:347209921282:android:3e3d21fcff591e27a1481b',
     messagingSenderId: '347209921282',
     projectId: 'wallpaper-app-2efc8',
     storageBucket: 'wallpaper-app-2efc8.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyB24M8zC5TFJnXyVz7IKyVnBgrpaWxr3vY',
+    appId: '1:347209921282:ios:2be9565209b6b56aa1481b',
+    messagingSenderId: '347209921282',
+    projectId: 'wallpaper-app-2efc8',
+    storageBucket: 'wallpaper-app-2efc8.appspot.com',
+    androidClientId: '347209921282-3j9e12f9ehhq3ffuq0ogugsdnu15jt7v.apps.googleusercontent.com',
+    iosClientId: '347209921282-hmetn0oba8bcvf9tgduhf6mpiot55dlb.apps.googleusercontent.com',
+    iosBundleId: 'com.wallpaperapp.live.wallpapers.hd',
   );
 }
