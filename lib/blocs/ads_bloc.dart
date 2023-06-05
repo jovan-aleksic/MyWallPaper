@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:wallpaper_app/configs/config.dart';
 
 class AdsBloc extends ChangeNotifier {
@@ -17,58 +17,58 @@ class AdsBloc extends ChangeNotifier {
   bool _admobAdLoaded = false;
   bool get admobAdLoaded => _admobAdLoaded;
 
-  InterstitialAd? interstitialAdAdmob;
+  // InterstitialAd? interstitialAdAdmob;
 
   void createAdmobInterstitialAd() {
 
-    InterstitialAd.load(
-        adUnitId: Config().admobInterstitialAdId,
-        request: const AdRequest(),
-        adLoadCallback: InterstitialAdLoadCallback(
-          onAdLoaded: (InterstitialAd ad) {
-            debugPrint('$ad loaded');
-            interstitialAdAdmob = ad;
-            _admobAdLoaded = true;
-            notifyListeners();
-          },
-          onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('InterstitialAd failed to load: $error.');
-            interstitialAdAdmob = null;
-            _admobAdLoaded = false;
-            notifyListeners();
-            loadAdmobInterstitialAd();
-          },
-        ));
+    // InterstitialAd.load(
+    //     adUnitId: Config().admobInterstitialAdId,
+    //     request: const AdRequest(),
+    //     adLoadCallback: InterstitialAdLoadCallback(
+    //       onAdLoaded: (InterstitialAd ad) {
+    //         debugPrint('$ad loaded');
+    //         interstitialAdAdmob = ad;
+    //         _admobAdLoaded = true;
+    //         notifyListeners();
+    //       },
+    //       onAdFailedToLoad: (LoadAdError error) {
+    //         debugPrint('InterstitialAd failed to load: $error.');
+    //         interstitialAdAdmob = null;
+    //         _admobAdLoaded = false;
+    //         notifyListeners();
+    //         loadAdmobInterstitialAd();
+    //       },
+    //     ));
   }
 
 
 
   void showInterstitialAdAdmob() {
-    if(interstitialAdAdmob != null){
+    // if(interstitialAdAdmob != null){
 
-      interstitialAdAdmob!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (InterstitialAd ad) => debugPrint('ad onAdShowedFullScreenContent.'),
-      onAdDismissedFullScreenContent: (InterstitialAd ad) {
-        debugPrint('$ad onAdDismissedFullScreenContent.');
-        ad.dispose();
-        interstitialAdAdmob = null;
-        _admobAdLoaded = false;
-        notifyListeners();
-        loadAdmobInterstitialAd();
-      },
-      onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
-        debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
-        ad.dispose();
-        interstitialAdAdmob = null;
-        _admobAdLoaded = false;
-        notifyListeners();
-        loadAdmobInterstitialAd();
-      },
-      );
-      interstitialAdAdmob!.show();
-      interstitialAdAdmob = null;
-      notifyListeners();
-    }
+      // interstitialAdAdmob!.fullScreenContentCallback = FullScreenContentCallback(
+      // onAdShowedFullScreenContent: (InterstitialAd ad) => debugPrint('ad onAdShowedFullScreenContent.'),
+      // onAdDismissedFullScreenContent: (InterstitialAd ad) {
+      //   debugPrint('$ad onAdDismissedFullScreenContent.');
+      //   ad.dispose();
+      //   interstitialAdAdmob = null;
+      //   _admobAdLoaded = false;
+      //   notifyListeners();
+      //   loadAdmobInterstitialAd();
+      // },
+      // onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
+      //   debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
+      //   ad.dispose();
+      //   interstitialAdAdmob = null;
+      //   _admobAdLoaded = false;
+      //   notifyListeners();
+      //   loadAdmobInterstitialAd();
+      // },
+      // );
+      // interstitialAdAdmob!.show();
+      // interstitialAdAdmob = null;
+      // notifyListeners();
+    // }
   }
 
 
@@ -82,7 +82,7 @@ class AdsBloc extends ChangeNotifier {
   
 
   Future disposeAdmobInterstitialAd() async {
-    interstitialAdAdmob?.dispose();
+    // interstitialAdAdmob?.dispose();
     notifyListeners();
   }
 

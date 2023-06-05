@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:wallpaper_app/blocs/ads_bloc.dart';
@@ -30,10 +30,10 @@ class _HomePageState extends State<HomePage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   //-------admob--------
-  Future initAdmobAd() async{
-    await MobileAds.instance.initialize()
-    .then((value) => context.read<AdsBloc>().loadAdmobInterstitialAd()); 
-  }
+  // Future initAdmobAd() async{
+  //   await MobileAds.instance.initialize()
+  //   .then((value) => context.read<AdsBloc>().loadAdmobInterstitialAd()); 
+  // }
 
 
 
@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
     initOnesignal();
     getData();
 
-    initAdmobAd();          //-------admob--------
+    // initAdmobAd();          //-------admob--------
     //initFbAd();             //-------fb--------
   }
 
